@@ -14,9 +14,9 @@ class NoteViewModel(application: Application): AndroidViewModel(application) {
 
     private val fetchNote: LiveData<List<Note>>
     private val noteRepository: NoteRepository
+    private  val noteDao by lazy { NoteDatabase(application).noteDao() }
 
     init {
-        val noteDao = NoteDatabase(application).noteDao()
         noteRepository = NoteRepository(noteDao)
         fetchNote = noteRepository.read()
     }
