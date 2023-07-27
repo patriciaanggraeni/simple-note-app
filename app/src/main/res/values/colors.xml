@@ -2,4 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- custom color -->
+    <color name="color_note_pink">#FFC0CB</color>
+    <color name="color_note_blue">#7FFFD4</color>
+    <color name="color_note_yellow">#FFFF66</color>
+    <color name="color_note_purple">#D57CFF</color>
+    <color name="color_note_green">#00FF7F</color>
+    <color name="color_note_white">#FFFFFF</color>
 </resources>
