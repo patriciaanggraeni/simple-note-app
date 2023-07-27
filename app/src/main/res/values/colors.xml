@@ -4,10 +4,15 @@
     <color name="white">#FFFFFFFF</color>
 
     <!-- custom color -->
+    <color name="main_background_color">#000000</color>
     <color name="color_note_pink">#FFC0CB</color>
     <color name="color_note_blue">#7FFFD4</color>
     <color name="color_note_yellow">#FFFF66</color>
     <color name="color_note_purple">#D57CFF</color>
     <color name="color_note_green">#00FF7F</color>
     <color name="color_note_white">#FFFFFF</color>
+    <color name="search_color_background">#333333</color>
+    <color name="search_hint_color">#50E0F0E3</color>
+    <color name="color_main_bottom_navigation">#212121</color>
+    <color name="color_add_button">#189AD3</color>
 </resources>

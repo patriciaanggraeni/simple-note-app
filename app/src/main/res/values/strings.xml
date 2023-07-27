@@ -1,9 +1,14 @@
 <resources>
-    <string name="app_name">simple-note-app</string>
+    <string name="app_name">Note App</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- custom string -->
     <string name="title">Title</string>
     <string name="notes">Notes</string>
     <string name="date">Date</string>
+    <string name="title_hint">Masukkan Judul</string>
+    <string name="notes_hint">Tulis Sesuatu</string>
+    <string name="search_hint">Cari Catatan</string>
+    <string name="greet">Guest</string>
+    <string name="btn_add">add</string>
 </resources>
