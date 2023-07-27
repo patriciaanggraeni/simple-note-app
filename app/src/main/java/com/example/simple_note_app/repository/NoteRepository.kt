@@ -1,7 +1,7 @@
 package com.example.simple_note_app.repository
 
 import androidx.lifecycle.LiveData
-import com.example.simple_note_app.helper.NoteDao
+import com.example.simple_note_app.database.NoteDao
 import com.example.simple_note_app.model.Note
 
 class NoteRepository(

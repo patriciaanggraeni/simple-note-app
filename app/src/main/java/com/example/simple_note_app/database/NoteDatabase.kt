@@ -1,4 +1,4 @@
-package com.example.simple_note_app.helper
+package com.example.simple_note_app.database
 
 import android.content.Context
 import androidx.room.Room

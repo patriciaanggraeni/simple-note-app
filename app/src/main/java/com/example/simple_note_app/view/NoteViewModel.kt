@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.simple_note_app.helper.NoteDatabase
+import com.example.simple_note_app.database.NoteDatabase
 import com.example.simple_note_app.model.Note
 import com.example.simple_note_app.repository.NoteRepository
 import kotlinx.coroutines.Dispatchers
