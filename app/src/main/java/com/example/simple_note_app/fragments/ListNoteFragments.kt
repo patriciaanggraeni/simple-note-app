@@ -47,7 +47,7 @@ class ListNoteFragments : Fragment(), FunctionHelper {
     }
 
     override fun setupComponents() {
-        val adapter = NoteAdapter()
+        val adapter = NoteAdapter(requireContext())
         noteRecyclerView.adapter = adapter
         noteRecyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
