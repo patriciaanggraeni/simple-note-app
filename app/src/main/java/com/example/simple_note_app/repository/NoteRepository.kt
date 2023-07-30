@@ -2,15 +2,15 @@ package com.example.simple_note_app.repository
 
 import androidx.lifecycle.LiveData
 import com.example.simple_note_app.database.NoteDao
-import com.example.simple_note_app.model.Note
+import com.example.simple_note_app.model.Notes
 
 class NoteRepository(
     private val noteDao: NoteDao
 ) {
 
-    fun read(): LiveData<List<Note>> = this.noteDao.read()
-    suspend fun insert(note: Note) = this.noteDao.insert(note)
-    suspend fun update(note: Note) = this.noteDao.update(note)
-    suspend fun delete(note: Note) = this.noteDao.delete(note)
+    fun read(): LiveData<List<Notes>> = this.noteDao.read()
+    suspend fun insert(notes: Notes) = this.noteDao.insert(notes)
+    suspend fun update(notes: Notes) = this.noteDao.update(notes)
+    suspend fun delete(notes: Notes) = this.noteDao.delete(notes)
 
 }

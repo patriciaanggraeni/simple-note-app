@@ -6,21 +6,21 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.example.simple_note_app.model.Note
+import com.example.simple_note_app.model.Notes
 
 @Dao
 interface NoteDao {
 
     @Query("SELECT * FROM note ORDER BY id DESC")
-    fun read(): LiveData<List<Note>>
+    fun read(): LiveData<List<Notes>>
 
     @Insert
-    suspend fun insert(note: Note)
+    suspend fun insert(notes: Notes)
 
     @Update
-    suspend fun update(note: Note)
+    suspend fun update(notes: Notes)
 
     @Delete
-    suspend fun delete(note: Note)
+    suspend fun delete(notes: Notes)
 
 }

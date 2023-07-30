@@ -1,21 +1,18 @@
 package com.example.simple_note_app.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.simple_note_app.R
-import com.example.simple_note_app.adapter.NoteAdapter
 import com.example.simple_note_app.helper.FunctionHelper
-import com.example.simple_note_app.model.Note
+import com.example.simple_note_app.model.Notes
 import com.example.simple_note_app.view.NoteViewModel
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -64,8 +61,8 @@ class InsertNoteFragments : Fragment(), FunctionHelper {
         val title: String = inputTitle.text.toString()
         val notes: String = inputNotes.text.toString()
         val currentDate = Date()
-        val date = SimpleDateFormat("dd-mm-yyyy hh-mm-ss", Locale.getDefault()).format(currentDate)
-        val note = Note(0, title = title, notes = notes, date = date)
+        val date = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()).format(currentDate)
+        val note = Notes(0, title = title, notes = notes, date = date)
 
         noteViewModel = ViewModelProvider(this@InsertNoteFragments)[NoteViewModel::class.java]
         noteViewModel.insertNote(note)

@@ -8,24 +8,32 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simple_note_app.R
-import com.example.simple_note_app.model.Note
+import com.example.simple_note_app.fragments.ListNoteFragmentsDirections
+import com.example.simple_note_app.fragments.UpdateNoteFragmentsDirections
+import com.example.simple_note_app.model.Notes
 
 class NoteAdapter(val context: Context) : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
 
-    private var listNote: List<Note> = emptyList()
+    private var listNotes: List<Notes> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
         LayoutInflater.from(parent.context).inflate(R.layout.notes_cardview, parent, false)
     )
 
     override fun onBindViewHolder(holder: NoteAdapter.ViewHolder, position: Int) {
-        val note = listNote[position]
+        val note = listNotes[position]
         holder.title.text = note.title
         holder.notes.text = note.notes
         holder.date.text = note.date
         holder.cardview.setCardBackgroundColor(getRandomColor())
+
+        holder.cardview.setOnClickListener {
+            val action = ListNoteFragmentsDirections.actionFromListNoteFragmentsToUpdateNoteFragments(note)
+            holder.cardview.findNavController().navigate(action)
+        }
 
         if (note.pin) {
             holder.pinned.setImageResource(R.drawable.icn_pin)
@@ -34,7 +42,7 @@ class NoteAdapter(val context: Context) : RecyclerView.Adapter<NoteAdapter.ViewH
         }
     }
 
-    override fun getItemCount() = listNote.size
+    override fun getItemCount() = listNotes.size
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.title)
@@ -44,8 +52,8 @@ class NoteAdapter(val context: Context) : RecyclerView.Adapter<NoteAdapter.ViewH
         val cardview: CardView = view.findViewById(R.id.notes_card)
     }
 
-    fun setDataNote(listNote: List<Note>) {
-        this.listNote = listNote
+    fun setDataNote(listNotes: List<Notes>) {
+        this.listNotes = listNotes
         notifyDataSetChanged()
     }
 
