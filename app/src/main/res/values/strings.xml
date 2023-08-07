@@ -11,4 +11,7 @@
     <string name="search_hint">Cari Catatan</string>
     <string name="greet">Guest</string>
     <string name="btn_add">add</string>
+    <string name="pin_notes">Pin</string>
+    <string name="delete_note">Hapus</string>
+    <string name="unpin_notes">Unpin</string>
 </resources>

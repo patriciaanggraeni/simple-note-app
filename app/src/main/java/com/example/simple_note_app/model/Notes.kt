@@ -23,5 +23,5 @@ data class Notes(
     val date: String,
 
     @ColumnInfo(name = "pinned")
-    val pin: Boolean = false
+    var pin: Boolean = false
 ) : Parcelable
