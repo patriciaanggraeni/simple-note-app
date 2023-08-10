@@ -15,4 +15,5 @@
     <color name="hint_color">#50E0F0E3</color>
     <color name="color_main_bottom_navigation">#212121</color>
     <color name="color_add_button">#189AD3</color>
+    <color name="color_pin">#F8E56C</color>
 </resources>

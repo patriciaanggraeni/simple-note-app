@@ -9,7 +9,9 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -27,7 +29,6 @@ class ListNoteFragments : Fragment(), FunctionHelper, OnNotePinClickListener {
     private lateinit var noteViewModel: NoteViewModel
     private lateinit var noteRecyclerView: RecyclerView
     private lateinit var btnAddNote: FloatingActionButton
-//    private var selectedNotePosition: Int = RecyclerView.NO_POSITION
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +41,6 @@ class ListNoteFragments : Fragment(), FunctionHelper, OnNotePinClickListener {
         setupListener()
 
         registerForContextMenu(noteRecyclerView)
-
         return view
     }
 
@@ -51,35 +51,6 @@ class ListNoteFragments : Fragment(), FunctionHelper, OnNotePinClickListener {
     override fun initComponents() {
         btnAddNote = view.findViewById(R.id.btn_add_new_notes)
         noteRecyclerView = view.findViewById(R.id.notes_recyclerview)
-    }
-
-    override fun onContextItemSelected(item: MenuItem): Boolean {
-        // val selectedNote = (noteRecyclerView.adapter as NoteAdapter).getNoteAtPosition()
-        // val adapter = noteRecyclerView.adapter as? NoteAdapter
-        // val selectedNote = adapter?.getNoteAtPosition()
-
-        val adapter = noteRecyclerView.adapter as? NoteAdapter
-
-        return when (item.itemId) {
-            R.id.pin_note -> {
-                adapter?.getSelectedId()?.let { id ->
-                    val selectedNote = adapter.getNoteById(id)
-                    selectedNote?.apply {
-                        pin = !pin
-                        Log.i("position", pin.toString())
-                        noteViewModel.updateNote(this)
-                        item.title = if (pin) getString(R.string.unpin_notes) else getString(R.string.pin_notes)
-                    }
-                }
-                true
-            }
-            R.id.delete_note -> {
-                true
-            }
-            else -> {
-                super.onContextItemSelected(item)
-            }
-        }
     }
 
     override fun setupListener() {

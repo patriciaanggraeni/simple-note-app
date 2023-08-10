@@ -19,9 +19,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <ImageView
+                android:id="@+id/pinned"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
             <TextView
                 android:id="@+id/title"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:includeFontPadding="false"
                 android:text="@string/title"
@@ -29,15 +34,9 @@
                 android:textSize="@dimen/_15ssp"
                 android:textColor="@color/black"
                 android:singleLine="true"
-                android:ellipsize="marquee"/>
-
-            <ImageView
-                android:id="@+id/pinned"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icn_pin"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"/>
+                android:ellipsize="marquee"
+                android:layout_below="@id/pinned"
+                android:layout_marginTop="@dimen/_5sdp"/>
 
         </RelativeLayout>
 
