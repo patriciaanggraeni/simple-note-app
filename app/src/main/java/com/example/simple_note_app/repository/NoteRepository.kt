@@ -9,6 +9,7 @@ class NoteRepository(
 ) {
 
     fun read(): LiveData<List<Notes>> = this.noteDao.read()
+    fun search(query: String) = this.noteDao.searchNotes("%$query%")
     suspend fun insert(notes: Notes) = this.noteDao.insert(notes)
     suspend fun update(notes: Notes) = this.noteDao.update(notes)
     suspend fun delete(notes: Notes) = this.noteDao.delete(notes)

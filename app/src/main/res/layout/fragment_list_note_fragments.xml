@@ -37,7 +37,6 @@
             android:layout_alignEnd="@id/app_name"
             android:iconifiedByDefault="false"
             android:searchIcon="@drawable/icn_search"
-            android:queryHint="@string/search_hint"
             android:background="@drawable/custom_search"
             android:layout_centerVertical="true"
             android:theme="@style/SearchViewStyle"/>

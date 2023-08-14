@@ -23,6 +23,8 @@ class NoteViewModel(application: Application): AndroidViewModel(application) {
 
     fun readNote() = fetchNotes
 
+    fun searchNote(query: String) = noteRepository.search(query)
+
     fun insertNote(notes: Notes) {
         viewModelScope.launch(Dispatchers.IO) {
             noteRepository.insert(notes)
