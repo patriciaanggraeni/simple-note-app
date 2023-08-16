@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.LoginFragment"
+    android:padding="@dimen/_10sdp"
+    android:background="@color/main_background_color">
+
+   <EditText
+       android:id="@+id/input_user_email"
+       android:layout_width="match_parent"
+       android:autofillHints="emailAddress"
+       android:layout_height="@dimen/_50sdp"
+       android:hint="Email..."
+       android:textColor="@color/white"
+       android:textSize="@dimen/_14ssp"
+       android:textColorHint="@color/hint_color"
+       android:fontFamily="@font/poppins_regular"
+       android:inputType="textEmailAddress"
+       android:includeFontPadding="false" />
+
+   <EditText
+       android:id="@+id/input_user_password"
+       android:autofillHints="password"
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/_50sdp"
+       android:hint="Password..."
+       android:textColor="@color/white"
+       android:textSize="@dimen/_14ssp"
+       android:textColorHint="@color/hint_color"
+       android:fontFamily="@font/poppins_regular"
+       android:inputType="textPassword"
+       android:includeFontPadding="false"
+       android:layout_below="@id/input_user_email"
+       android:layout_marginTop="@dimen/_15sdp"/>
+
+   <Button
+       android:id="@+id/btn_login_user"
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/_35sdp"
+       android:layout_below="@id/input_user_password"
+       android:layout_marginTop="@dimen/_15sdp"
+       android:text="Login"
+       android:textSize="@dimen/_13ssp" />
+
+</RelativeLayout>

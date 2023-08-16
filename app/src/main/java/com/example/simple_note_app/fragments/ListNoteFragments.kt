@@ -1,5 +1,6 @@
 package com.example.simple_note_app.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.ContextMenu
@@ -9,8 +10,10 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.SearchView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
@@ -24,12 +27,19 @@ import com.example.simple_note_app.helper.FunctionHelper
 import com.example.simple_note_app.helper.OnNotePinClickListener
 import com.example.simple_note_app.model.Notes
 import com.example.simple_note_app.view.NoteViewModel
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.textfield.TextInputEditText
 
-class ListNoteFragments : Fragment(), FunctionHelper, OnNotePinClickListener {
+class ListNoteFragments : Fragment(), FunctionHelper {
 
     private lateinit var view: View
     private lateinit var adapter: NoteAdapter
+    private lateinit var btnLogin: Button
     private lateinit var searchNote: SearchView
     private lateinit var noteViewModel: NoteViewModel
     private lateinit var noteRecyclerView: RecyclerView
@@ -54,6 +64,7 @@ class ListNoteFragments : Fragment(), FunctionHelper, OnNotePinClickListener {
     }
 
     override fun initComponents() {
+        btnLogin = view.findViewById(R.id.btn_login)
         searchNote = view.findViewById(R.id.search_notes)
         btnAddNote = view.findViewById(R.id.btn_add_new_notes)
         noteRecyclerView = view.findViewById(R.id.notes_recyclerview)
@@ -62,6 +73,10 @@ class ListNoteFragments : Fragment(), FunctionHelper, OnNotePinClickListener {
     override fun setupListener() {
         noteViewModel = ViewModelProvider(this@ListNoteFragments)[NoteViewModel::class.java]
         var searchResultObserver: Observer<List<Notes>>? = null
+
+        btnLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_from_list_note_fragments_to_login_fragments)
+        }
 
         btnAddNote.setOnClickListener {
             findNavController().navigate(R.id.action_from_list_note_fragments_to_insert_note_fragments)

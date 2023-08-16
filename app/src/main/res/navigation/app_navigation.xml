@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_from_list_note_fragments_to_update_note_fragments"
             app:destination="@id/updateNoteFragments" />
+        <action
+            android:id="@+id/action_from_list_note_fragments_to_login_fragments"
+            app:destination="@id/loginFragment" />
     </fragment>
 
     <fragment
@@ -38,6 +41,15 @@
         <argument
             android:name="noteParcel"
             app:argType="com.example.simple_note_app.model.Notes" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.simple_note_app.fragments.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_from_login_fragments_to_list_note_fragments"
+            app:destination="@id/listNoteFragments" />
     </fragment>
 
 </navigation>
